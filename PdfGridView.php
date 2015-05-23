@@ -179,7 +179,22 @@ class PdfGridView extends CGridView {
 				$value = $value === null ? "" : $column->grid->getFormatter()->format($value, 'raw');
 			}
 
-			$this->write(CHtml::openTag('td', $column->htmlOptions));
+			$options = $column->htmlOptions;
+
+			// CSS class for column by expression	
+			if($this->cssClassExpression !== null) {
+				
+				$class=$this->evaluateExpression($this->cssClassExpression,array('row'=>$row,'data'=>$data));
+				
+				if(!empty($class)) {
+					if(isset($options['class']))
+						$options['class'] .= ' ' . $class;
+					else
+						$options['class'] = $class;
+				}
+			}
+
+			$this->write(CHtml::openTag('td', $options));
 			$this->write($value);
 			$this->write(CHtml::closeTag('td'));
 		}
