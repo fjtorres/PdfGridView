@@ -4,7 +4,7 @@ Yii::import('zii.widgets.grid.CGridView');
 /**
  * Yii extension for export gridview to PDF with MPDF library.
  * @author FJTORRES
- * @version 0.1
+ * @version 0.2
  */
 class PdfGridView extends CGridView {
 
