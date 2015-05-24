@@ -1,9 +1,14 @@
 PdfGridView
 ===========
 
-Yii extension for export grid view to PDF with MPDF.
+Yii extension for export grid view to PDF with MPDF. This version support MPDF 6.0.
 
+- [Change log](#change-log)
 - [Sample](#sample-code)
+
+## Change log
+
+- 0.2: Added cssClassExpression attribute to column and license (apache license v2).
 
 ## Sample code:
 
@@ -13,10 +18,12 @@ Yii extension for export grid view to PDF with MPDF.
 		'dataProvider'=> $dataProvider,
 		'outputName'=>$exportName,
 		'styleFile'=>'css/export-pdf.css',
+		'rowCssClassExpression'=>'Expression for the row css class'
 		'columns'=>array(
 		array(
 			'name'=>'column1', 
-			'htmlOptions'=>array('style'=>'width:100px;text-align:center;')
+			'htmlOptions'=>array('style'=>'width:100px;text-align:center;'),
+			'cssClassExpression'=>'Expression for the column css class'
 		),
 		'column1',
 
