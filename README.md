@@ -31,7 +31,7 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 	),
 	));
 ?>
-´´´
+```
 
 # Resources
 
