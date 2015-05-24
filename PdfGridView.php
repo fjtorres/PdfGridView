@@ -58,7 +58,7 @@ class PdfGridView extends CGridView {
 	public function init() {
 		parent::init();
 
-		Yii::createComponent('application.extensions.MPDF56.mpdf');
+		Yii::createComponent('application.extensions.mpdf60.mpdf');
 
 		$this->pdfObject = new mPDF('', 'A4', $this->defaultFontSize, $this->defaultFontFamily, $this->marginLeft,
 				$this->marginRight, $this->marginTop, $this->marginBottom, 0, 0, 'landscape');
@@ -182,9 +182,9 @@ class PdfGridView extends CGridView {
 			$options = $column->htmlOptions;
 
 			// CSS class for column by expression	
-			if($this->cssClassExpression !== null) {
+			if($column->cssClassExpression !== null) {
 				
-				$class=$this->evaluateExpression($this->cssClassExpression,array('row'=>$row,'data'=>$data));
+				$class=$this->evaluateExpression($column->cssClassExpression,array('row'=>$row,'data'=>$data));
 				
 				if(!empty($class)) {
 					if(isset($options['class']))
