@@ -14,7 +14,6 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 ## Sample code:
 
 ```php
-
 <?php 
 	$this->widget('ext.PdfGridView', array(
 		'dataProvider'=> $dataProvider,
@@ -32,10 +31,8 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 	),
 	));
 ?>
-
 ´´´
-
-
+-- 
 ## Resources
 
 MPDF: [http://www.mpdf1.com/](http://www.mpdf1.com/)
