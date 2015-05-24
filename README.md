@@ -7,11 +7,11 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 - [Sample](#sample-code)
 - [Resources](#resources)
 
-## Change log
+# Change log
 
 - 0.2: Added cssClassExpression attribute to column and license (apache license v2). Change from MPDF 5.6 to MPDF 6.0.
 
-## Sample code:
+# Sample code:
 
 ```php
 <?php 
@@ -32,7 +32,7 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 	));
 ?>
 ´´´
--- 
-## Resources
+
+# Resources
 
 MPDF: [http://www.mpdf1.com/](http://www.mpdf1.com/)
