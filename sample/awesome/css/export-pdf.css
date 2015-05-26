@@ -1,0 +1,24 @@
+body {
+	font-family: Verdana;
+	font-size: 10pt;
+}
+
+table {
+	width: 100%;
+	border-spacing: 0px;
+	border: 1px solid #000;
+}
+
+table td, table th {
+	border: 1px solid #000;
+	padding-left: 3px;
+	height: 30px;
+}
+
+td.default {
+	background-color: #EEE;
+}
+
+td.password {
+	background-color: #CCC;
+}
