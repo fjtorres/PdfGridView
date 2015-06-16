@@ -10,6 +10,7 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 # Change log
 
 - 0.2: Added cssClassExpression attribute to column and license (apache license v2). Change from MPDF 5.6 to MPDF 6.0.
+- 0.3: Added headerText, headerCssClass, emptyText, emptyCssClass attribute to widget.
 
 # Sample code:
 
@@ -20,6 +21,10 @@ Yii extension for export grid view to PDF with MPDF. This version support MPDF 6
 		'outputName'=>$exportName,
 		'styleFile'=>'css/export-pdf.css',
 		'rowCssClassExpression'=>'Expression for the row css class'
+		'emptyText'=>'Data not found text',
+		'emptyCssClass'=>'Empty text css class',
+		'headerText'=>'Report header',
+		'headerCssClass'=>'Report header css class',
 		'columns'=>array(
 		array(
 			'name'=>'column1', 

@@ -19,7 +19,7 @@ Yii::import('zii.widgets.grid.CGridView');
 /**
  * Yii extension for export gridview to PDF with MPDF library.
  * @author FJTORRES
- * @version 0.2
+ * @version 0.3
  */
 class PdfGridView extends CGridView {
 
@@ -70,6 +70,26 @@ class PdfGridView extends CGridView {
 	 */
 	public $defaultFontSize = 0;
 
+	/**
+	* Text for empty PDF file.
+	*/
+	public $emptyText = "Data not found";
+
+	/**
+	* Css class for empty text.
+	*/
+	public $emptyCssClass;
+
+	/**
+	* Text for header of PDF file.
+	*/
+	public $headerText = "Data not found";
+
+	/**
+	* Css class for header.
+	*/
+	public $headerCssClass;
+
 	public function init() {
 		parent::init();
 
@@ -102,10 +122,25 @@ class PdfGridView extends CGridView {
 	 */
 	private function writePdf() {
 		$this->write($this->style);
-		$this->write(CHtml::openTag("table"));
-		$this->writeHeader();
-		$this->writeBody();
-		$this->write(CHtml::closeTag('table'));
+		if ($this->hasData()) {
+
+			$this->writeReportHeader();
+
+			$this->write(CHtml::openTag("table"));
+			$this->writeHeader();
+			$this->writeBody();
+			$this->write(CHtml::closeTag('table'));
+		} else {
+			$emptyHtmlOptions = array();
+			
+			if ($this->emptyCssClass !== null) {
+				$emptyHtmlOptions['class'] = $this->emptyCssClass;
+			}
+
+			$this->write(CHtml::openTag("div", $emptyHtmlOptions));
+			$this->write($this->emptyText);
+			$this->write(CHtml::closeTag("div"));
+		}
 	}
 
 	/**
@@ -276,4 +311,32 @@ class PdfGridView extends CGridView {
 			$this->outputHtml .= $str;
 		}
 	}
+
+	/**
+	* Check data of report.
+	* @return true if report has data, false otherwise.
+	*/
+	private function hasData () {
+		$this->dataProvider->pagination = false;
+
+		$data = $this->dataProvider->getData(true);
+		$n = count($data);
+
+		return $n > 0;
+	}
+
+	private function writeReportHeader () {
+		if ($this->headerText !== null) {
+
+			$headerHtmlOptions = array();
+
+			if ($this->headerCssClass !== null) {
+				$headerHtmlOptions['class'] = $this->headerCssClass;
+			}
+			$this->write(CHtml::openTag("div", $headerHtmlOptions));
+			$this->write($this->headerText);
+			$this->write(CHtml::closeTag("div"));
+		}
+	}
+
 }

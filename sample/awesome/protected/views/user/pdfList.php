@@ -3,6 +3,10 @@
 		'dataProvider'=> $dataProvider,
 		'outputName'=>'User list',
 		'styleFile'=>'css/export-pdf.css',
+		'emptyText'=>'Listado de usuarios vacio.',
+		'emptyCssClass'=>'emptyReport',
+		'headerText'=>'Listado de usuarios',
+		'headerCssClass'=>'tituloReport',
 		'columns'=>array(
 		array(
 			'name'=>'username', 

@@ -22,3 +22,11 @@ td.default {
 td.password {
 	background-color: #CCC;
 }
+
+.tituloReport {
+	color: orange;
+}
+
+.emptyReport {
+	color: red;
+}
